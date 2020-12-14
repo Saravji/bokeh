@@ -136,15 +136,15 @@ export class ColorBarView extends AnnotationView {
       minor_tick_out: this.model.minor_tick_out,
       major_label_standoff: this.model.label_standoff,
       major_label_overrides: this.model.major_label_overrides,
-      //this.visuals.major_label_text
-      //this.visuals.major_tick_line
-      //this.visuals.minor_tick_line
+      ...this.visuals.major_label_text.attributes,
+      ...this.visuals.major_tick_line.attributes,
+      ...this.visuals.minor_tick_line.attributes,
     })
 
     this._title = new Title({
       text: this.model.title,
-      // title_standoff
-      // this.visuals.title_text
+      offset: this.model.title_standoff,
+      ...this.visuals.title_text.attributes,
     })
 
     this._set_canvas_image()

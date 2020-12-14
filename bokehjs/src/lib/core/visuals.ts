@@ -187,6 +187,14 @@ export abstract class ContextProperties {
     yield* this._props
   }
 
+  get attributes(): any {
+    const attrs: {[key: string]: unknown} = {}
+    for (const prop of this) {
+      attrs[prop.attr] = prop.get_value()
+    }
+    return attrs
+  }
+
   constructor(readonly obj: View, readonly prefix: string = "") {
     const self = this as any
     this._props = []
